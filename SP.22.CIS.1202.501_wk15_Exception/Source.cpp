@@ -3,10 +3,18 @@
 //4.29.2022
 
 #include <iostream>
+#include <string>; 
 
 using namespace std; 
 
 char character(char, int); 
+string invalidCharacterExcpeption;
+
+string invalidRangeException;
+
+string invalidTransistionException;
+
+
 
 int main() {
 	char letter, temp;
@@ -26,10 +34,38 @@ int main() {
 
 
 char character(char start, int offset) {
+	char temp;
 	
-	char temp ; 
-
 	temp = start + offset;
+	try
+	{
+		if (start > 97 || start > 122 || (start < 97 && start > 90) )
+		{
+			throw invalidCharacterExcpeption;
+		}
+
+		else if (true)
+		{
+
+		}
+		
+	}
+	catch (string invalidCharacterExcpeption)
+	{
+
+	}
+
+	catch (string invalidRangeException) 
+	{
+
+	}
+	
+	catch (string invalidTransitionException)
+	{
+
+	}
+
+	
 
 
 	return temp; 
