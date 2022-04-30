@@ -6,14 +6,31 @@
 
 using namespace std; 
 
+char character(char, int); 
 
 int main() {
+	char letter, temp;
+	int num; 
+
+	cout << "Please enter a letter: "; 
+	cin >> letter; 
+	cout << "Please enter a number: "; 
+	cin >> num; 
+
+	temp = character(letter, num);
+
+	cout << temp;
+
+	return 0; 
+}
 
 
+char character(char start, int offset) {
+	
+	char temp ; 
+
+	temp = start + offset;
 
 
-
-
-
-	return 0 
+	return temp; 
 }
