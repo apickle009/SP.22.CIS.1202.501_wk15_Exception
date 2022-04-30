@@ -3,16 +3,16 @@
 //4.29.2022
 
 #include <iostream>
-#include <string>; 
+#include <string>
 
 using namespace std; 
 
 char character(char, int); 
-string invalidCharacterExcpeption;
+class invalidCharacterExcpeption {};
 
-string invalidRangeException;
+class invalidRangeException {};
 
-string invalidTransistionException;
+class invalidTransitionException {};
 
 
 
@@ -27,7 +27,7 @@ int main() {
 
 	temp = character(letter, num);
 
-	cout << temp;
+	cout << "\n" << temp;
 
 	return 0; 
 }
@@ -39,34 +39,42 @@ char character(char start, int offset) {
 	temp = start + offset;
 	try
 	{
-		if (start > 97 || start > 122 || (start < 97 && start > 90) )
+		if (start > 122 || start < 65 || (start < 97 && start > 90) )
 		{
-			throw invalidCharacterExcpeption;
+			throw invalidCharacterExcpeption();
+		}
+		else if (temp < 65 || temp > 122 || (temp < 97 && temp > 90))
+		{
+			throw invalidRangeException();
 		}
 
-		else if (true)
+		else if (((start >= 95 && start <= 122) && temp >= 65 && temp <= 90) || ((temp >= 95 && temp <= 122) && start >= 65 && start <= 90))
 		{
-
+			throw invalidTransitionException();
 		}
-		
+		else
+		{
+			return temp;
+		}
+
 	}
-	catch (string invalidCharacterExcpeption)
+	catch (invalidCharacterExcpeption)
 	{
-
+		cout << "Invalid Letter Entered! ";
+		return ' ';
 	}
 
-	catch (string invalidRangeException) 
+	catch (invalidRangeException)
 	{
-
+		cout << "Invalid Number Entered! ";
+		return ' ';
 	}
+
+	catch (invalidTransitionException)
+	{
+		cout << "Invalid Letter and Number combincation entered! ";
+		return ' ';
+	}
+
 	
-	catch (string invalidTransitionException)
-	{
-
-	}
-
-	
-
-
-	return temp; 
 }
